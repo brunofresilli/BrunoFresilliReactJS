@@ -1,0 +1,11 @@
+.Itemlistcontainer {
+  text-align: center;
+  padding: 20px;
+ 
+}
+
+.Itemlistcontainer h3 {
+  font-size: 24px;
+  color: #000000;
+  font-weight: bold;
+}
