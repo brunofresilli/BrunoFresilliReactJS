@@ -91,7 +91,7 @@ function Navbar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                component={Link} // Utiliza el componente Link
+                component={Link} 
                 to={`/Category/${page.toLowerCase()}`}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
