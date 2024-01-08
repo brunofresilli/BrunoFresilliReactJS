@@ -12,38 +12,31 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../../assets/logo.png';
+import { Link } from 'react-router-dom';
 
-const pages = ['Productos', 'Preguntas frecuentes', 'Contacto'];
+const pages = [ 'Nike', 'Vans','Adidas'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static" sx={{background: "black"}}>
+    <AppBar position="static" sx={{ background: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <img src={logo} alt="Logo" style={{ height: '100px', marginRight: '30px' }} />
+          <img src={logo}  alt="Logo" style={{ height: '100px', marginRight: '30px' } } />
           <Typography
             variant="h6"
+            component={Link} 
+            to="/Productos"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -55,7 +48,7 @@ function Navbar() {
             }}
           >
             SNEAKERS SHOP
-          </Typography>
+        </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -88,49 +81,30 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" component={Link} to={`/Category/${page.toLowerCase()}`}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-        
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            
-          </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                component={Link} // Utiliza el componente Link
+                to={`/Category/${page.toLowerCase()}`}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
-            
           </Box>
           <Cartwidget />
           <span>10</span>
-
-          
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
+
 export default Navbar;

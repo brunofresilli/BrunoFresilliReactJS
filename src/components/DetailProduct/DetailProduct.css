@@ -1,0 +1,29 @@
+*{ padding: 0;
+margin: 0;}
+.detail-product-container {
+    display: flex;
+    padding: 100px;
+    
+  }
+.custom-card {
+    display: flex;
+  }
+  
+  .card-media {
+    flex: 1;
+    margin-right: 20px; /* Ajusta el margen según tus preferencias */
+  }
+  
+  .card-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
