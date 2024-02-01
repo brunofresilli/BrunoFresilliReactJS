@@ -1,24 +1,15 @@
 import React from 'react';
 import "./ProductList.css";
-import CardProduct from "../cardProduct/CardProduct";
-import { Link } from 'react-router-dom';
+import CardProduct from '../cardProduct/cardProduct';
 
+const ProductList = ({ productosData, agregarAlCarrito }) => {
+  return (
+    <div className='CardContainer'>
+      {productosData.map((productosData) => (
+        <CardProduct key={productosData.id} productosData={productosData} agregarAlCarrito={agregarAlCarrito} />
+      ))}
+    </div>
+  );
+};
 
-
-
-  
-  
-  
-  const ProductList = ({ productos }) => {
-    return (
-      <div className='CardContainer'>
-        {productos.map((producto) => (
-          <Link to={`/detail/${producto.codigo}`} key={producto.codigo}>
-            <CardProduct producto={producto} />
-          </Link>
-        ))}
-      </div>
-    );
-  };
-  
-  export default ProductList;
+export default ProductList;

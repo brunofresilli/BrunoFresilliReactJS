@@ -15,8 +15,7 @@ import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 
 const pages = [ 'Nike', 'Vans','Adidas'];
-
-function Navbar() {
+const Navbar = ({ contador }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -28,7 +27,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ background: 'black' }}>
+    <AppBar position="fixed" sx={{ top: 0, width: '100%', zIndex: 1000, background: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src={logo}  alt="Logo" style={{ height: '100px', marginRight: '30px' } } />
@@ -100,11 +99,16 @@ function Navbar() {
             ))}
           </Box>
           <Cartwidget />
-          <span>10</span>
+
+          {contador > 0 && (
+            <span style={{ position: 'absolute', top: '50px', right: '50px', background: 'white', color: 'black', borderRadius: '50%', padding: '2px 6px', fontSize: '12px' }}>
+              {contador}
+            </span>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
 
 export default Navbar;
